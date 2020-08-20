@@ -1,73 +1,5 @@
 # Platform API Project Seed
 
-### Current Directory Structure
-
-```
-├── js
-│   ├── color-view.js
-│   ├── external-window-snapshot.js
-│   ├── layout-form.js
-│   ├── left-menu.js
-│   ├── platform-provider.js
-│   ├── platform-window.js
-│   ├── snapshot-form.js
-│   ├── template-store.js
-│   └── title-bar.js
-├── my_platform_notes.txt
-├── package-lock.json
-├── package.json
-├── platform-window.html
-├── provider.html
-├── public.json
-├── app.json
-├── server.js
-├── serviceworker.js
-└── styles
-    ├── frame-styles-template.css
-    ├── frame-styles.css
-    └── light-theme.css
-```
-
-### Proposed Directory Structure
-
-#### TODO: Figure out what the guys think is best for 
-
-```
-├── my_platform_notes.txt
-├── package-lock.json
-├── package.json
-├── serviceworker.js
-├── platform-window
-│   ├── platform-window.html
-│   ├── platform-window.js
-│   ├── layout-form.js
-│   ├── left-menu.js
-│   ├── snapshot-form.js
-│   ├── [template | snapshot]-store.js(?)
-│   ├── title-bar.js
-│   └── platform-window.md
-|
-├── context-api
-│   ├── color-view.js
-│   ├── color-view.html
-│   └── context-api.md
-|
-├── provider
-│   ├── platform-provider.js
-│   ├── provider.html
-│   ├── provider-[helpers|utils](?).js<->external-window-snapshot.js
-│   └── provider.md
-|
-├── manifests
-│   ├── app.json
-│   ├── public.json
-│   └── manifests.md
-|
-└── styles
-    ├── frame-styles-template.css
-    ├── frame-styles.css
-    └── light-theme.css
-```
 This project seed includes the following [Platform API](https://openfin.co/platform-api) capabilites:
 
 * Examples of the configuration required to use the Platform API and apply customizations
@@ -130,7 +62,8 @@ Our [custom Provider](js/platform-provider.js) includes an [extension](js/extern
 * Override `getSnapshot` to include a [externalWindows](https://cdn.openfin.co/docs/javascript/15.80.49.21/ExternalWindow.html) section containing information on any any external window included in the configuration.
 * Override `applySnapshot` to look for an [externalWindows](https://cdn.openfin.co/docs/javascript/15.80.49.21/ExternalWindow.html) section and restore the position and state of any external window included in the configuration.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ2MjQyMDc1Niw1NzQ3NzM1MTYsOTk3Mz
-Q2MDYyLDEzNTM2MTY2NzgsLTE0NDQxODc0ODUsMTM4NDQzNjk5
-NSwxMDM0MzQ3ODMyLDEwMzE2MzExMjYsMjAxNDM2MTMxMl19
+eyJoaXN0b3J5IjpbLTcxMzY4MzM2NCwtNDYyNDIwNzU2LDU3ND
+c3MzUxNiw5OTczNDYwNjIsMTM1MzYxNjY3OCwtMTQ0NDE4NzQ4
+NSwxMzg0NDM2OTk1LDEwMzQzNDc4MzIsMTAzMTYzMTEyNiwyMD
+E0MzYxMzEyXX0=
 -->
