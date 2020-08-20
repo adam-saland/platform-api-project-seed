@@ -1,26 +1,84 @@
 # Platform API Project Seed
 
+```.
+
+├── java
+
+│ └── platform-api-demo
+
+│ ├── src
+
+│ │ └── main
+
+│ │ └── java
+
+│ │ └── com
+
+│ │ └── openfin
+
+│ │ └── demo
+
+│ │ └── PlatformApiDemo.java
+
+│ ├── README.md
+
+│ └── pom.xml
+
+├── js
+
+│ ├── color-view.js
+
+│ ├── external-window-snapshot.js
+
+│ ├── layout-form.js
+
+│ ├── left-menu.js
+
+│ ├── platform-provider.js
+
+│ ├── platform-window.js
+
+│ ├── snapshot-form.js
+
+│ ├── template-store.js
+
+│ └── title-bar.js
+
+├── styles
+
+│ ├── frame-styles-template.css
+
+│ ├── frame-styles.css
+
+│ └── light-theme.css
+
+├── LICENSE
+
+├── README.md
+
+├── app.json
+
+├── color-view.html
+
+├── favicon.ico
+
+├── my_platform_notes.txt
+
+├── package-lock.json
+
+├── package.json
+
+├── platform-window.html
+
+├── provider.html
+
+├── public.json
+
+├── server.js
+
+└── serviceworker.js```
+
 This project seed includes the following [Platform API](https://openfin.co/platform-api) capabilites:
-```
-.
-+-- _config.yml
-+-- _drafts
-|   +-- begin-with-the-crazy-ideas.textile
-|   +-- on-simplicity-in-technology.markdown
-+-- _includes
-|   +-- footer.html
-|   +-- header.html
-+-- _layouts
-|   +-- default.html
-|   +-- post.html
-+-- _posts
-|   +-- 2007-10-29-why-every-programmer-should-play-nethack.textile
-|   +-- 2009-04-26-barcamp-boston-4-roundup.textile
-+-- _data
-|   +-- members.yml
-+-- _site
-+-- index.html
-```
 
 * Examples of the configuration required to use the Platform API and apply customizations
 * Usage of the Platform API to group, tab, and rearrange application windows
@@ -82,5 +140,5 @@ Our [custom Provider](js/platform-provider.js) includes an [extension](js/extern
 * Override `getSnapshot` to include a [externalWindows](https://cdn.openfin.co/docs/javascript/15.80.49.21/ExternalWindow.html) section containing information on any any external window included in the configuration.
 * Override `applySnapshot` to look for an [externalWindows](https://cdn.openfin.co/docs/javascript/15.80.49.21/ExternalWindow.html) section and restore the position and state of any external window included in the configuration.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAxNDM2MTMxMl19
+eyJoaXN0b3J5IjpbMTAzMTYzMTEyNiwyMDE0MzYxMzEyXX0=
 -->
