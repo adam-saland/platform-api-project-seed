@@ -27,10 +27,8 @@
 ```
 ```
 ├── js
-│   ├── external-window-snapshot.js
 │   ├── layout-form.js
 │   ├── left-menu.js
-│   ├── platform-provider.js
 │   ├── platform-window.js
 │   ├── snapshot-form.js
 │   ├── [template | snapshot]-store.js(?)
@@ -40,7 +38,7 @@
 │   ├── color-view.html
 │   └── context-api.md
 ├── provider
-│   ├── provider-[helpers|utils](?).js <-> external-window-snapshot.js
+│   ├── provider-[helpers|utils](?).js <-> external-window-snapshot.js  
 │   ├── platform-provider.js
 |	├── provider.html
 |	└── provider.md
@@ -120,6 +118,6 @@ Our [custom Provider](js/platform-provider.js) includes an [extension](js/extern
 * Override `getSnapshot` to include a [externalWindows](https://cdn.openfin.co/docs/javascript/15.80.49.21/ExternalWindow.html) section containing information on any any external window included in the configuration.
 * Override `applySnapshot` to look for an [externalWindows](https://cdn.openfin.co/docs/javascript/15.80.49.21/ExternalWindow.html) section and restore the position and state of any external window included in the configuration.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkxMDIxMDk4OSwxMzg0NDM2OTk1LDEwMz
+eyJoaXN0b3J5IjpbMTQ5NTkyNDExOSwxMzg0NDM2OTk1LDEwMz
 QzNDc4MzIsMTAzMTYzMTEyNiwyMDE0MzYxMzEyXX0=
 -->
