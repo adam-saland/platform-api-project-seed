@@ -29,6 +29,9 @@
 ```
 
 ### Proposed Directory Structure
+
+#### TODO: Figure out what the guys think is best for 
+
 ```
 ├── my_platform_notes.txt
 ├── package-lock.json
@@ -127,7 +130,7 @@ Our [custom Provider](js/platform-provider.js) includes an [extension](js/extern
 * Override `getSnapshot` to include a [externalWindows](https://cdn.openfin.co/docs/javascript/15.80.49.21/ExternalWindow.html) section containing information on any any external window included in the configuration.
 * Override `applySnapshot` to look for an [externalWindows](https://cdn.openfin.co/docs/javascript/15.80.49.21/ExternalWindow.html) section and restore the position and state of any external window included in the configuration.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzQwNzYzOTMyLDU3NDc3MzUxNiw5OTczND
-YwNjIsMTM1MzYxNjY3OCwtMTQ0NDE4NzQ4NSwxMzg0NDM2OTk1
-LDEwMzQzNDc4MzIsMTAzMTYzMTEyNiwyMDE0MzYxMzEyXX0=
+eyJoaXN0b3J5IjpbLTQ2MjQyMDc1Niw1NzQ3NzM1MTYsOTk3Mz
+Q2MDYyLDEzNTM2MTY2NzgsLTE0NDQxODc0ODUsMTM4NDQzNjk5
+NSwxMDM0MzQ3ODMyLDEwMzE2MzExMjYsMjAxNDM2MTMxMl19
 -->
