@@ -1,27 +1,74 @@
 # Platform API Project Seed
 
-This project seed includes the following [Platform API](https://openfin.co/platform-api) capabilites:
+### Current Directory Structure
+
 ```
-.
-+-- _config.yml
-+-- _drafts
-|   +-- begin-with-the-crazy-ideas.textile
-|   +-- on-simplicity-in-technology.markdown
-+-- _includes
-|   +-- footer.html
-|   +-- header.html
-+-- _layouts
-|   +-- default.html
-|   +-- post.html
-+-- _posts
-|   +-- 2007-10-29-why-every-programmer-should-play-nethack.textile
-|   +-- 2009-04-26-barcamp-boston-4-roundup.textile
-+-- _data
-|   +-- members.yml
-+-- _site
-+-- index.html
+├── js
+│   ├── color-view.js
+│   ├── external-window-snapshot.js
+│   ├── layout-form.js
+│   ├── left-menu.js
+│   ├── platform-provider.js
+│   ├── platform-window.js
+│   ├── snapshot-form.js
+│   ├── template-store.js
+│   └── title-bar.js
+├── my_platform_notes.txt
+├── package-lock.json
+├── package.json
+├── platform-window.html
+├── provider.html
+├── public.json
+├── app.json
+├── server.js
+├── serviceworker.js
+└── styles
+    ├── frame-styles-template.css
+    ├── frame-styles.css
+    └── light-theme.css
 ```
 
+### Proposed Directory Structure
+
+#### TODO: Figure out what the guys think is best for 
+
+```
+├── my_platform_notes.txt
+├── package-lock.json
+├── package.json
+├── serviceworker.js
+├── platform-window
+│   ├── platform-window.html
+│   ├── platform-window.js
+│   ├── layout-form.js
+│   ├── left-menu.js
+│   ├── snapshot-form.js
+│   ├── [template | snapshot]-store.js(?)
+│   ├── title-bar.js
+│   └── platform-window.md
+|
+├── context-api
+│   ├── color-view.js
+│   ├── color-view.html
+│   └── context-api.md
+|
+├── provider
+│   ├── platform-provider.js
+│   ├── provider.html
+│   ├── provider-[helpers|utils](?).js<->external-window-snapshot.js
+│   └── provider.md
+|
+├── manifests
+│   ├── app.json
+│   ├── public.json
+│   └── manifests.md
+|
+└── styles
+    ├── frame-styles-template.css
+    ├── frame-styles.css
+    └── light-theme.css
+```
+This project seed includes the following [Platform API](https://openfin.co/platform-api) capabilites:
 * Examples of the configuration required to use the Platform API and apply customizations
 * Usage of the Platform API to group, tab, and rearrange application windows
 * API examples of View management and creation
@@ -82,5 +129,5 @@ Our [custom Provider](js/platform-provider.js) includes an [extension](js/extern
 * Override `getSnapshot` to include a [externalWindows](https://cdn.openfin.co/docs/javascript/15.80.49.21/ExternalWindow.html) section containing information on any any external window included in the configuration.
 * Override `applySnapshot` to look for an [externalWindows](https://cdn.openfin.co/docs/javascript/15.80.49.21/ExternalWindow.html) section and restore the position and state of any external window included in the configuration.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAxNDM2MTMxMl19
+eyJoaXN0b3J5IjpbLTE2MzA3MTk3MTgsMjAxNDM2MTMxMl19
 -->
