@@ -1,34 +1,31 @@
 # Platform API Project Seed
 |Current| Proposed New  |
 |--|--|
-|  |  |
-
-```
-├── js
-│   ├── color-view.js
-│   ├── external-window-snapshot.js
-│   ├── layout-form.js
-│   ├── left-menu.js
-│   ├── platform-provider.js
-│   ├── platform-window.js
-│   ├── snapshot-form.js
-│   ├── template-store.js
-│   └── title-bar.js
-├── my_platform_notes.txt
-├── package-lock.json
-├── package.json
-├── platform-window.html
-├── provider.html
-├── public.json
-├── app.json
-├── server.js
-├── serviceworker.js
-└── styles
-    ├── frame-styles-template.css
-    ├── frame-styles.css
-    └── light-theme.css
-```
-
+| ``` 
+|├── js 
+|│   ├── color-view.js 
+|│   ├── external-window-snapshot.js 
+|│   ├── layout-form.js 
+|│   ├── left-menu.js 
+|│   ├── platform-provider.js 
+|│   ├── platform-window.js 
+|│   ├── snapshot-form.js 
+|│   ├── template-store.js 
+|│   └── title-bar.js 
+|├── my_platform_notes.txt 
+|├── package-lock.json 
+|├── package.json 
+|├── platform-window.html 
+|├── provider.html 
+|├── public.json 
+|├── app.json 
+|├── server.js 
+|├── serviceworker.js 
+|└── styles 
+|    ├── frame-styles-template.css 
+|    ├── frame-styles.css 
+|    └── light-theme.css 
+|``` |
 ```
 ├── js
 │   ├── color-view.js
@@ -125,6 +122,6 @@ Our [custom Provider](js/platform-provider.js) includes an [extension](js/extern
 * Override `getSnapshot` to include a [externalWindows](https://cdn.openfin.co/docs/javascript/15.80.49.21/ExternalWindow.html) section containing information on any any external window included in the configuration.
 * Override `applySnapshot` to look for an [externalWindows](https://cdn.openfin.co/docs/javascript/15.80.49.21/ExternalWindow.html) section and restore the position and state of any external window included in the configuration.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxNDQ1ODg0MjMsMTAzNDM0NzgzMiwxMD
-MxNjMxMTI2LDIwMTQzNjEzMTJdfQ==
+eyJoaXN0b3J5IjpbLTM2OTY1MTYyMywxMDM0MzQ3ODMyLDEwMz
+E2MzExMjYsMjAxNDM2MTMxMl19
 -->
