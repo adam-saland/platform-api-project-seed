@@ -31,7 +31,7 @@
 ├── package.json
 ├── platform-window.html
 ├── serviceworker.js
-├── js
+├── platform-mwindow
 │   ├── layout-form.js
 │   ├── left-menu.js
 │   ├── platform-window.js
@@ -122,7 +122,7 @@ Our [custom Provider](js/platform-provider.js) includes an [extension](js/extern
 * Override `getSnapshot` to include a [externalWindows](https://cdn.openfin.co/docs/javascript/15.80.49.21/ExternalWindow.html) section containing information on any any external window included in the configuration.
 * Override `applySnapshot` to look for an [externalWindows](https://cdn.openfin.co/docs/javascript/15.80.49.21/ExternalWindow.html) section and restore the position and state of any external window included in the configuration.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY2NzAxNTIwOSw5OTczNDYwNjIsMTM1Mz
+eyJoaXN0b3J5IjpbLTQzMDY0OTUxOSw5OTczNDYwNjIsMTM1Mz
 YxNjY3OCwtMTQ0NDE4NzQ4NSwxMzg0NDM2OTk1LDEwMzQzNDc4
 MzIsMTAzMTYzMTEyNiwyMDE0MzYxMzEyXX0=
 -->
