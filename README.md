@@ -1,7 +1,11 @@
 # Platform API Project Seed
 |  |  |
 |--|--|
-|```├── js│├── color-view.js```
+|```  |  |
+
+```
+├── js
+│   ├── color-view.js
 │   ├── external-window-snapshot.js
 │   ├── layout-form.js
 │   ├── left-menu.js
@@ -22,9 +26,8 @@
 └── styles
     ├── frame-styles-template.css
     ├── frame-styles.css
-    └── light-theme.css`|  |
-
-
+    └── light-theme.css
+```
 
 ```
 ├── js
@@ -122,6 +125,6 @@ Our [custom Provider](js/platform-provider.js) includes an [extension](js/extern
 * Override `getSnapshot` to include a [externalWindows](https://cdn.openfin.co/docs/javascript/15.80.49.21/ExternalWindow.html) section containing information on any any external window included in the configuration.
 * Override `applySnapshot` to look for an [externalWindows](https://cdn.openfin.co/docs/javascript/15.80.49.21/ExternalWindow.html) section and restore the position and state of any external window included in the configuration.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMDg0ODE0OTAsMTAzNDM0NzgzMiwxMD
-MxNjMxMTI2LDIwMTQzNjEzMTJdfQ==
+eyJoaXN0b3J5IjpbMTE4NDc2MTY0NCwxMDM0MzQ3ODMyLDEwMz
+E2MzExMjYsMjAxNDM2MTMxMl19
 -->
