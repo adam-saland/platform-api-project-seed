@@ -1,6 +1,80 @@
 # Platform API Project Seed
 
+.
 
+├── java
+
+│ └── platform-api-demo
+
+│ ├── src
+
+│ │ └── main
+
+│ │ └── java
+
+│ │ └── com
+
+│ │ └── openfin
+
+│ │ └── demo
+
+│ │ └── PlatformApiDemo.java
+
+│ └── pom.xml
+
+├── js
+
+│ ├── color-view.js
+
+│ ├── external-window-snapshot.js
+
+│ ├── layout-form.js
+
+│ ├── left-menu.js
+
+│ ├── platform-provider.js
+
+│ ├── platform-window.js
+
+│ ├── snapshot-form.js
+
+│ ├── template-store.js
+
+│ └── title-bar.js
+
+├── styles
+
+│ ├── frame-styles-template.css
+
+│ ├── frame-styles.css
+
+│ └── light-theme.css
+
+├── DIR_TREE.md
+
+├── LICENSE
+
+├── app.json
+
+├── color-view.html
+
+├── favicon.ico
+
+├── my_platform_notes.txt
+
+├── package-lock.json
+
+├── package.json
+
+├── platform-window.html
+
+├── provider.html
+
+├── public.json
+
+├── server.js
+
+└── serviceworker.js
 
 This project seed includes the following [Platform API](https://openfin.co/platform-api) capabilites:
 
@@ -64,6 +138,6 @@ Our [custom Provider](js/platform-provider.js) includes an [extension](js/extern
 * Override `getSnapshot` to include a [externalWindows](https://cdn.openfin.co/docs/javascript/15.80.49.21/ExternalWindow.html) section containing information on any any external window included in the configuration.
 * Override `applySnapshot` to look for an [externalWindows](https://cdn.openfin.co/docs/javascript/15.80.49.21/ExternalWindow.html) section and restore the position and state of any external window included in the configuration.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAzNDM0NzgzMiwxMDMxNjMxMTI2LDIwMT
-QzNjEzMTJdfQ==
+eyJoaXN0b3J5IjpbMTU1MTY1NDk5OSwxMDM0MzQ3ODMyLDEwMz
+E2MzExMjYsMjAxNDM2MTMxMl19
 -->
