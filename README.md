@@ -51,9 +51,9 @@
 │   └── provider.md
 |
 ├── manifests
-│   ├── provider.html
-│   ├── provider-[helpers|utils](?).js<->external-window-snapshot.js
-│   └── provider.md
+│   ├── app.json
+│   ├── public.json
+│   └── manifests.md
 |
 └── styles
     ├── frame-styles-template.css
@@ -122,7 +122,7 @@ Our [custom Provider](js/platform-provider.js) includes an [extension](js/extern
 * Override `getSnapshot` to include a [externalWindows](https://cdn.openfin.co/docs/javascript/15.80.49.21/ExternalWindow.html) section containing information on any any external window included in the configuration.
 * Override `applySnapshot` to look for an [externalWindows](https://cdn.openfin.co/docs/javascript/15.80.49.21/ExternalWindow.html) section and restore the position and state of any external window included in the configuration.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MTQ3Nzk0ODYsOTk3MzQ2MDYyLDEzNT
-M2MTY2NzgsLTE0NDQxODc0ODUsMTM4NDQzNjk5NSwxMDM0MzQ3
-ODMyLDEwMzE2MzExMjYsMjAxNDM2MTMxMl19
+eyJoaXN0b3J5IjpbLTY2NzAxNTIwOSw5OTczNDYwNjIsMTM1Mz
+YxNjY3OCwtMTQ0NDE4NzQ4NSwxMzg0NDM2OTk1LDEwMzQzNDc4
+MzIsMTAzMTYzMTEyNiwyMDE0MzYxMzEyXX0=
 -->
