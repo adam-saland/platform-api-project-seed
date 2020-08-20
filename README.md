@@ -1,6 +1,9 @@
 # Platform API Project Seed
 
 This project seed includes the following [Platform API](https://openfin.co/platform-api) capabilites:
+|folder|file  ||folder|file  | 
+|--|--|--|--|
+|  |  || |  |
 
 * Examples of the configuration required to use the Platform API and apply customizations
 * Usage of the Platform API to group, tab, and rearrange application windows
@@ -61,3 +64,6 @@ Our [custom Provider](js/platform-provider.js) includes an [extension](js/extern
 
 * Override `getSnapshot` to include a [externalWindows](https://cdn.openfin.co/docs/javascript/15.80.49.21/ExternalWindow.html) section containing information on any any external window included in the configuration.
 * Override `applySnapshot` to look for an [externalWindows](https://cdn.openfin.co/docs/javascript/15.80.49.21/ExternalWindow.html) section and restore the position and state of any external window included in the configuration.
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTI4MzQ5ODU0NF19
+-->
