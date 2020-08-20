@@ -1,6 +1,8 @@
 # Platform API Project Seed
-```
-├── js
+|Current| Proposed New  |
+|--|--|
+|```
+|├── js
 │   ├── color-view.js
 │   ├── external-window-snapshot.js
 │   ├── layout-form.js
@@ -23,9 +25,7 @@
     ├── frame-styles-template.css
     ├── frame-styles.css
     └── light-theme.css
-```
-
-```
+```| ```
 ├── js
 │   ├── color-view.js
 │   ├── external-window-snapshot.js
@@ -59,6 +59,9 @@
     ├── frame-styles.css
     └── light-theme.css
 ```
+|
+
+
 This project seed includes the following [Platform API](https://openfin.co/platform-api) capabilites:
 
 * Examples of the configuration required to use the Platform API and apply customizations
@@ -121,6 +124,6 @@ Our [custom Provider](js/platform-provider.js) includes an [extension](js/extern
 * Override `getSnapshot` to include a [externalWindows](https://cdn.openfin.co/docs/javascript/15.80.49.21/ExternalWindow.html) section containing information on any any external window included in the configuration.
 * Override `applySnapshot` to look for an [externalWindows](https://cdn.openfin.co/docs/javascript/15.80.49.21/ExternalWindow.html) section and restore the position and state of any external window included in the configuration.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc5NDcyMjU4OCwxMDM0MzQ3ODMyLDEwMz
+eyJoaXN0b3J5IjpbLTU0ODk0NTcwNSwxMDM0MzQ3ODMyLDEwMz
 E2MzExMjYsMjAxNDM2MTMxMl19
 -->
