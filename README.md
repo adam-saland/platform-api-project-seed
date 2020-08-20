@@ -38,7 +38,8 @@
 │   └── title-bar.js
 ├── context-api
 │   ├── color-view.js
-|
+│   ├── color-view.html
+│   └── context-apo.js
 ├── provider
 │   ├── platform-provider.js
 |	├── provider.html
@@ -120,6 +121,6 @@ Our [custom Provider](js/platform-provider.js) includes an [extension](js/extern
 * Override `getSnapshot` to include a [externalWindows](https://cdn.openfin.co/docs/javascript/15.80.49.21/ExternalWindow.html) section containing information on any any external window included in the configuration.
 * Override `applySnapshot` to look for an [externalWindows](https://cdn.openfin.co/docs/javascript/15.80.49.21/ExternalWindow.html) section and restore the position and state of any external window included in the configuration.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5Nzc1ODg5NzEsMTAzNDM0NzgzMiwxMD
-MxNjMxMTI2LDIwMTQzNjEzMTJdfQ==
+eyJoaXN0b3J5IjpbMjA2MTA5Mjk4NCwxMDM0MzQ3ODMyLDEwMz
+E2MzExMjYsMjAxNDM2MTMxMl19
 -->
