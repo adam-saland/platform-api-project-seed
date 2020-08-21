@@ -3,12 +3,6 @@
 ### Directory Structure
 
 ```
-├── color-view
-│   ├── README.md
-│   ├── color-view.js
-│   └── index.html
-├── favicon.ico
-├── java
 ├── manifests
 │   ├── README.md
 │   ├── app.json
@@ -28,20 +22,42 @@
 │   ├── index.html
 │   ├── platform-provider.js
 │   └── provider-overrides.js
+├── color-view
+│   ├── README.md
+│   ├── color-view.js
+│   └── index.html
+├── README.md
 ├── my_platform_notes.txt
 ├── package-lock.json
 ├── package.json
 ├── server.js
+├── serviceworker.js
 ├── LICENSE
-├── README.md
-└── serviceworker.js
+├── favicon.ico
+└── java
 ```
 
-This project provide a progressive cirriculum for the following 
+This project provides a cirriculum for developers to sequentially build an understanding of Platform API paradigms, architecture, and concepts, that progressively increases in complexity.
 
 ### Understanding the Platform API concepts
-- 
- as well as 
+
+- Bare Bones Platform Manifest.
+  - What is the platform provider doing out of the box?
+    - [ ] How does provider start a platform?
+    - [ ] E.g) applies snapshot:
+    how?: launching "window(s)" -> then binding "manifests snapshot layout" to the launched "window(s)"
+- Provider
+  - [ ] What is custom provider?
+  - [ ] Custom Provider use cases?
+  - [ ] [Recipes](http://TODO:link-to-recipes/)
+- default-window
+  - basic default window components
+    - [ ] frame: w/ out frame?
+    - [ ] no left-menu
+    - [ ] stock max min close
+    - [ ] Layout.init
+variables by GL component)
+
 This project seed includes the following [Platform API](https://openfin.co/platform-api) capabilites:
 * Examples of the configuration required to use the Platform API and apply customizations
 * Usage of the Platform API to group, tab, and rearrange application windows
