@@ -1,5 +1,8 @@
 # Platform API Project Seed
 
+---
+NOTES:
+
 ### Directory Structure
 
 ```
@@ -56,7 +59,7 @@ This project provides a cirriculum for developers to sequentially build an under
     - [ ] no left-menu
     - [ ] stock max min close
     - [ ] Layout.init
-variables by GL component)
+---
 
 This project seed includes the following [Platform API](https://openfin.co/platform-api) capabilites:
 * Examples of the configuration required to use the Platform API and apply customizations
