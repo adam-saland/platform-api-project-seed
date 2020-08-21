@@ -28,7 +28,7 @@ if(process.argv.length > 2) {
 const manifestFile = fs.existsSync(localJson) ? localJson : appJson;
 
 //To Launch the OpenFin Application we need a manifestUrl.
-const manifestUrl = `http://localhost:${serverParams.port}/${manifestFile}`;
+const manifestUrl = `http://localhost:${serverParams.port}/manifests/${manifestFile}`;
 
 //Start the server server
 const server = httpServer.createServer(serverParams);

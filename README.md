@@ -1,73 +1,47 @@
 # Platform API Project Seed
 
-### Current Directory Structure
+### Directory Structure
 
 ```
-├── js
-│   ├── color-view.js
-│   ├── external-window-snapshot.js
-│   ├── layout-form.js
-│   ├── left-menu.js
-│   ├── platform-provider.js
-│   ├── platform-window.js
-│   ├── snapshot-form.js
-│   ├── template-store.js
-│   └── title-bar.js
-├── my_platform_notes.txt
-├── package-lock.json
-├── package.json
-├── platform-window.html
-├── provider.html
-├── public.json
-├── app.json
-├── server.js
-├── serviceworker.js
-└── styles
-    ├── frame-styles-template.css
-    ├── frame-styles.css
-    └── light-theme.css
-```
-
-### Proposed Directory Structure
-
-#### TODO: Figure out what the guys think is best for 
-
-```
-├── my_platform_notes.txt
-├── package-lock.json
-├── package.json
-├── serviceworker.js
-├── platform-window
-│   ├── platform-window.html
-│   ├── platform-window.js
-│   ├── layout-form.js
-│   ├── left-menu.js
-│   ├── snapshot-form.js
-│   ├── [template | snapshot]-store.js(?)
-│   ├── title-bar.js
-│   └── platform-window.md
-|
-├── context-api
-│   ├── color-view.js
-│   ├── color-view.html
-│   └── context-api.md
-|
-├── provider
-│   ├── platform-provider.js
-│   ├── provider.html
-│   ├── provider-[helpers|utils](?).js<->external-window-snapshot.js
-│   └── provider.md
-|
+├── color-view
+│   ├── README.md
+│   ├── color-view.js
+│   └── index.html
+├── favicon.ico
+├── java
 ├── manifests
-│   ├── app.json
-│   ├── public.json
-│   └── manifests.md
-|
-└── styles
-    ├── frame-styles-template.css
-    ├── frame-styles.css
-    └── light-theme.css
+│   ├── README.md
+│   ├── app.json
+│   └── public.json
+├── platform-window
+│   ├── README.md
+│   ├── index.html
+│   ├── layout-form.js
+│   ├── left-menu.js
+│   ├── platform-window.js
+│   ├── snapshot-form.js
+│   ├── styles
+│   ├── template-store.js
+│   └── title-bar.js
+├── provider
+│   ├── README.md
+│   ├── index.html
+│   ├── platform-provider.js
+│   └── provider-overrides.js
+├── my_platform_notes.txt
+├── package-lock.json
+├── package.json
+├── server.js
+├── LICENSE
+├── README.md
+└── serviceworker.js
 ```
+
+This project provide a progressive cirriculum for the following 
+
+### Understanding the Platform API concepts
+- 
+ as well as 
 This project seed includes the following [Platform API](https://openfin.co/platform-api) capabilites:
 * Examples of the configuration required to use the Platform API and apply customizations
 * Usage of the Platform API to group, tab, and rearrange application windows
