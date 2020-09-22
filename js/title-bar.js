@@ -1,13 +1,19 @@
 import { html, render } from 'https://unpkg.com/lit-html@1.0.0/lit-html.js';
-
+import {storeTemplate, getTemplateByName, getTemplates } from './template-store.js';
 //Our Title bar element
 class TitleBar extends HTMLElement {
     constructor() {
         super();
         this.LIGHT_THEME = 'light-theme';
         this.DARK_THEME = 'dark';
-
+        this.templateStorageKey = "snapshot-store";
+        this.snapshotName = `snapshot-${Date.now()}`;
+        this.currentPlatform = fin.Platform.getCurrentSync();
         this.render();
+
+        fin.Platform.getCurrentSync().on('initialized',console.log);
+        fin.Platform.getCurrentSync().on('platform-api-ready',console.log);
+        
         fin.Platform.getCurrentSync().getWindowContext().then(initialContext => {
             if (initialContext && initialContext.theme) {
                 this.setTheme(initialContext.theme);
@@ -21,6 +27,11 @@ class TitleBar extends HTMLElement {
                 this.setTheme(evt.context.theme);
             }
         });
+        // const templates = getTemplates(this.templateStorageKey);
+        // console.log(templates)
+        // const lastSnapshot = templates[templates.length-1];
+        // await fin.Platform.getCurrentSync().applySnapshot({snapshot: lastSnapshot, close: true});
+        fin.System.on('window-created', console.log)
 
         fin.me.on('layout-ready', async () => {
             // Whenever a new layout is ready on this window (on init, replace, or applyPreset)
@@ -45,7 +56,7 @@ class TitleBar extends HTMLElement {
                     <div class="button" title="Toggle Layout Lock" id="lock-button" @click=${this.toggleLockedLayout}></div>
                     <div class="button" title="Minimize Window" id="minimize-button" @click=${() => fin.me.minimize().catch(console.error)}></div>
                     <div class="button" title="Maximize Window" id="expand-button" @click=${() => this.maxOrRestore().catch(console.error)}></div>
-                    <div class="button" title="Close Window" id="close-button" @click=${() => fin.me.close().catch(console.error)}></div>
+                    <div class="button" title="Close Window" id="close-button" @click=${() => fin.Platform.getCurrentSync().quit().catch(console.error)}></div>
                 </div>`;
         return render(titleBar, this);
     }
