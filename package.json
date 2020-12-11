@@ -1,7 +1,7 @@
 {
   "name": "create-openfin-app",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.1.0",
+  "description": "Bootstrap OpenFin examples and templates via cli.",
   "main": "index.js",
   "scripts": {
     "start": "ts-node src/index.ts",
@@ -11,8 +11,8 @@
     "create-openfin-app": "./dist/index.js"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "connormccafferty",
+  "license": "Apache-2.0",
   "devDependencies": {
     "@types/ejs": "^3.0.5",
     "@types/inquirer": "^7.3.1",
@@ -27,5 +27,13 @@
     "ejs": "^3.1.5",
     "inquirer": "^7.3.3",
     "shelljs": "^0.8.4"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/connormccafferty/create-openfin-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/connormccafferty/create-openfin-app/issues"
+  },
+  "homepage": "https://github.com/connormccafferty/create-openfin-app#readme"
 }
