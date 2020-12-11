@@ -2,39 +2,27 @@
 
 import * as fs from 'fs';
 import * as path from 'path';
-import * as inquirer from 'inquirer';
 import chalk from 'chalk';
 import * as template from './utils/template';
 import * as shell from 'shelljs';
+import * as yargs from 'yargs';
 
-const EXAMPLE_CHOICES = fs.readdirSync(path.join(__dirname, 'examples'));
-const TEMPLATE_CHOICES = fs.readdirSync(path.join(__dirname, 'templates'));
+const argv = yargs
+  .usage('Usage: $0 <command> [options]')
+  .command('create-openfin-app', 'Generate an OpenFin example or template')
+  .example('$0 create-openfin-app -e example-dir project-name', 'Generate an example')
+  .alias('e', 'example')
+  .describe('e', 'Generate an example')
+  .example('$0 create-openfin-app -t template-dir project-name', 'Generate a template')
+  .alias('t', 'template')
+  .describe('t', 'Generate a template')
+  .help('h')
+  .alias('h', 'help').argv
 
-const QUESTIONS = [
-  {
-    name: 'exampleOrTemplate',
-    type: 'list',
-    message: 'Would you like to generate a template or example?',
-    choices: ['template', 'example']
-  }
-];
-
-function generateFollowUpQuestions(answer: string) {
-  return [
-    {
-      name: answer === 'example' ? 'example' : 'template',
-      type: 'list',
-      message: answer === 'example' ? 'What example would you like to use?' : 'What template would you like to use?',
-      choices: answer === 'example' ? EXAMPLE_CHOICES : TEMPLATE_CHOICES
-    },
-    {
-      name: 'name',
-      type: 'input',
-      message: 'Please input a new project name:'
-    }
-  ]
-}
-
+const EXAMPLE_CHOICES: string[] = fs.readdirSync(path.join(__dirname, 'examples'));
+const TEMPLATE_CHOICES: string[] = fs.readdirSync(path.join(__dirname, 'templates'));
+const SKIP_FILES = ['node_modules', '.template.json'];
+const CURR_DIR = process.cwd();
 export interface CliOptions {
   projectName: string
   templateName: string
@@ -42,34 +30,43 @@ export interface CliOptions {
   targetPath: string
 }
 
-const CURR_DIR = process.cwd();
+main(argv);
 
-inquirer.prompt(QUESTIONS).then(answers => {
-  const { exampleOrTemplate } = answers;
-  const FOLLOW_UP_QUESTIONS = generateFollowUpQuestions(exampleOrTemplate);
+function main(argv: any) {
+  if (argv.example === true || argv.template === true) {
+    return argv.example === true
+      ? EXAMPLE_CHOICES.forEach(example => console.log(chalk.white(example)))
+      : TEMPLATE_CHOICES.forEach(template => console.log(chalk.white(template)));
+  }
 
-  inquirer.prompt(FOLLOW_UP_QUESTIONS).then(answers => {
-    const projectChoice = answers[exampleOrTemplate];
-    const projectName = answers['name'];
-    const templatePath = path.join(__dirname, `${exampleOrTemplate}s`, projectChoice);
-    const targetPath = path.join(CURR_DIR, projectName);
+  if (argv.example && !EXAMPLE_CHOICES.includes(argv.example as string)) {
+    return console.log(chalk.red(`Can't find the example ${argv.example} exists.\n`), chalk.white('Run the command "create-openfin-app -e" to list the available examples.'));
+  }
 
-    const options: CliOptions = {
-      projectName,
-      templateName: projectChoice,
-      templatePath,
-      targetPath
-    }
+  if (argv.template && !TEMPLATE_CHOICES.includes(argv.template as string)) {
+    return console.log(chalk.red(`Can't find the template ${argv.template}.\n`), chalk.white('Run the command "create-openfin-app -e" to list the available examples.'));
+  }
 
-    if (!createProject(targetPath)) {
-      return;
-    }
+  const templateOrExample = argv.example ? 'example' : 'template';
+  const templatePath = path.join(__dirname, `${templateOrExample}s`, argv[templateOrExample] as string);
+  const projectName = argv._[1] as string || argv[templateOrExample] as string;
+  const targetPath = path.join(CURR_DIR, projectName);
 
-    createDirectoryContents(templatePath, projectName);
+  const options: CliOptions = {
+    projectName,
+    templateName: argv[templateOrExample] as string,
+    templatePath,
+    targetPath
+  }
 
-    // postProcess(options);
-  })
-});
+  if (!createProject(targetPath)) {
+    return;
+  }
+
+  createDirectoryContents(templatePath, projectName);
+
+  // postProcess(options);
+}
 
 function createProject(projectPath: string) {
   if (fs.existsSync(projectPath)) {
@@ -80,8 +77,6 @@ function createProject(projectPath: string) {
 
   return true;
 }
-
-const SKIP_FILES = ['node_modules', '.template.json'];
 
 function createDirectoryContents(templatePath: string, projectName: string) {
   // read all files/folders (1 level) from template folder
