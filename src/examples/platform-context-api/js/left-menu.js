@@ -3,7 +3,7 @@ import { getTemplates, getTemplateByName, onStoreUpdate } from './template-store
 import { CONTAINER_ID } from './platform-window.js';
 
 const CHART_URL = 'https://cdn.openfin.co/embed-web/chart.html';
-const LAYOUT_STORE_KEY = 'LayoutForm';
+const LAYOUT_STORE_KEY  = 'LayoutForm';
 const SNAPSHOT_STORE_KEY = 'SnapshotForm';
 
 
@@ -29,6 +29,11 @@ class LeftMenu extends HTMLElement {
                 url: 'https://www.google.com/search?q=INDEXDJX:+.DJI&stick=H4sIAAAAAAAAAONgecRozC3w8sc9YSmtSWtOXmNU4eIKzsgvd80rySypFBLjYoOyeKS4uDj0c_UNkgsry3kWsfJ5-rm4Rrh4RVgp6Ll4eQIAqJT5uUkAAAA&source=lnms&sa=X&ved=0ahUKEwii_NWT9fzoAhU3mHIEHWy3AWIQ_AUIDSgA&biw=1280&bih=1366&dpr=1',
                 printName: 'News',
                 processAffinity: 'mw_1'
+            },
+            {
+                url: window.location.href.replace('platform-window', 'color-view'),
+                printName: 'Colors',
+                processAffinity: 'cv_1'
             },
             {
                 url: `https://cdn.openfin.co/docs/javascript/${fin.desktop.getVersion()}`,
@@ -186,7 +191,7 @@ class LeftMenu extends HTMLElement {
 
     share = async () => {
         const { windows } = await fin.Platform.getCurrentSync().getSnapshot();
-        const contentConfig = { snapshot: { windows } };
+        const contentConfig = {snapshot: { windows } };
         const res = await fetch('https://jsonblob.com/api/jsonBlob', {
             method: 'POST', // or 'PUT'
             body: JSON.stringify(contentConfig), // data can be `string` or {object}!
