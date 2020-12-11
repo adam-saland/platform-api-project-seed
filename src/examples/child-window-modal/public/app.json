@@ -1,0 +1,31 @@
+{
+  "devtools_port": 9090,
+  "startup_app": {
+    "name": "child-window-modal",
+    "uuid": "child-window-modal",
+    "url": "http://localhost:5555/index.html",
+    "autoShow": true,
+    "defaultHeight": 600,
+    "defaultWidth": 600,
+    "defaultCentered": true,
+    "permissions": {
+      "ExternalWindow": {
+        "wrap": true
+      },
+      "ExternalApplication": {
+        "wrap": true
+      },
+      "System": {
+        "getAllExternalWindows": true,
+        "launchExternalProcess": true,
+        "readRegistryValue": true,
+        "terminateExternalProcess": true
+      }
+    }
+  },
+  "runtime": {
+    "arguments": "",
+    "version": "stable"
+  },
+  "shortcut": {}
+}

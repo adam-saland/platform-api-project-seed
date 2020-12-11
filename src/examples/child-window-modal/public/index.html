@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>child window modal example</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <p>Version: <span id="of-version"></span></p>
+  <button id="show">show modal</button>
+  <button id="launch">launch excel</button>
+  <div class="overlay" style="display: none;"></div>
+</body>
+<script>
+  async function showModal() {
+    const parent = await fin.Window.getCurrent();
+    let {
+      bottom,
+      height,
+      left,
+      right,
+      top,
+      width,
+    } = await parent.getBounds();
+
+    const overlay = document.querySelector(".overlay");
+
+    const modal = await fin.Window.create({
+      name: "modal",
+      url: "http://localhost:5555/modal.html",
+      defaultWidth: Math.floor(width - width / 4),
+      defaultHeight: Math.floor(height - height / 4),
+      defaultTop: Math.floor(top + height / 8),
+      defaultLeft: Math.floor(left + width / 8),
+      frame: false,
+      saveWindowState: false,
+      resizable: false,
+      maximizable: false,
+      minimizable: false,
+      alwaysOnTop: true,
+      autoShow: false,
+    });
+    await modal.addListener("shown", async () => {
+      await modal.disableUserMovement();
+      overlay.style.display = "block";
+      await parent.disableUserMovement();
+      await parent.updateOptions({
+        frame: false,
+        opacity: 0.7,
+        resizable: false,
+        maximizable: false,
+        minimizable: false,
+      });
+      await modal.setAsForeground();
+      const _win = await parent.getWebWindow();
+      await _win.addEventListener("click", stopClick);
+    });
+    await modal.addListener("closed", async () => {
+      overlay.style.display = "none";
+      const _win = await parent.getWebWindow();
+      await _win.removeEventListener("click", stopClick);
+      await parent.enableUserMovement();
+      await parent.updateOptions({
+        frame: true,
+        opacity: 1,
+        resizable: true,
+        maximizable: true,
+        minimizable: true,
+      });
+    });
+    await modal.show();
+  }
+
+  function stopClick(event) {
+    event.preventDefault();
+    event.stopPropagation();
+  }
+
+  const ofVersion = document.getElementById("of-version");
+
+  const showBtn = document.querySelector("#show");
+
+  showBtn.addEventListener("click", async (e) => {
+    e.preventDefault();
+    await showModal();
+  });
+
+  if (typeof fin !== "undefined") {
+    fin.System.getVersion()
+      .then((v) => (ofVersion.textContent = v))
+      .catch(console.error);
+  } else {
+    ofVersion.textContent = "You are probably running in a browser.";
+  }
+</script>
+
+</html>
