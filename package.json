@@ -2,7 +2,7 @@
   "name": "create-openfin-app",
   "version": "0.1.0",
   "description": "Bootstrap OpenFin examples and templates via cli.",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "start": "ts-node src/index.ts",
     "build": "tsc && shx cp -r src/examples dist && shx cp -r src/templates dist"

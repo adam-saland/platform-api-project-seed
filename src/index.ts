@@ -7,17 +7,17 @@ import * as template from './utils/template';
 import * as shell from 'shelljs';
 import * as yargs from 'yargs';
 
-const argv = yargs
-  .usage('Usage: $0 <command> [options]')
+const argv = yargs.usage('Usage: $0 <command> [options]')
   .command('create-openfin-app', 'Generate an OpenFin example or template')
-  .example('$0 create-openfin-app -e example-dir project-name', 'Generate an example')
+  .example('$0 create-openfin-app -e example-dir project-name(optional)', 'Generate an example')
+  .example('$0 create-openfin-app -t template-dir project-name(optional)', 'Generate a template')
   .alias('e', 'example')
   .describe('e', 'Generate an example')
-  .example('$0 create-openfin-app -t template-dir project-name', 'Generate a template')
   .alias('t', 'template')
   .describe('t', 'Generate a template')
   .help('h')
-  .alias('h', 'help').argv
+  .alias('h', 'help')
+  .argv;
 
 const EXAMPLE_CHOICES: string[] = fs.readdirSync(path.join(__dirname, 'examples'));
 const TEMPLATE_CHOICES: string[] = fs.readdirSync(path.join(__dirname, 'templates'));
