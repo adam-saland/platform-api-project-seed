@@ -10,9 +10,9 @@ describe('Bootstrap examples', () => {
 
     const example = spawn('node', [
       'dist/index.js',
-      EXAMPLES[0],
+      'create-openfin-app',
       '-e',
-      'app-child-window-modal'
+      EXAMPLES[0]
     ]);
 
     const chunks: Buffer[] = [];
@@ -41,10 +41,10 @@ describe('Bootstrap examples', () => {
 
     const example = spawn('node', [
       'dist/index.js',
-      EXAMPLES[0],
+      'create-openfin-app',
       '-e',
-      'app-child-window-modal',
-      'my-project'
+      EXAMPLES[0],
+      projectName
     ]);
 
     const chunks: Buffer[] = [];
@@ -67,38 +67,34 @@ describe('Bootstrap examples', () => {
     });
   })
 
-  // it('should be able to create all of the examples', (done) => {
-  //   const createExamplesPromise: Promise<void> = new Promise(resolve => {
-  //     EXAMPLES.forEach((e, i, a) => {
-  //       const example = spawn('node', [
-  //         'dist/index.js',
-  //         e,
-  //         '-e',
-  //         'app-child-window-modal'
-  //       ]);
+  it('should be able to create all of the examples', (done) => {
+    EXAMPLES.forEach(e => {
+      const example = spawn('node', [
+        'dist/index.js',
+        'create-openfin-app',
+        '-e',
+        e
+      ]);
 
-  //       const chunks: Buffer[] = [];
+      const chunks: Buffer[] = [];
 
-  //       example.stdout.on('data', (chunk) => {
-  //         chunks.push(chunk);
-  //       });
+      example.stdout.on('data', (chunk) => {
+        chunks.push(chunk);
+      });
 
-  //       example.stdout.on('end', async () => {
-  //         const output = Buffer.concat(chunks).toString();
-  //         const exampleDir = fs.readdirSync(path.join(path.normalize(__dirname + '/..'), 'dist', 'examples', e));
-  //         const createdExampleDirPath = path.join(path.normalize(__dirname + '/..'), e)
-  //         const createdExampleDir = fs.readdirSync(createdExampleDirPath);
+      example.stdout.on('end', async () => {
+        const output = Buffer.concat(chunks).toString();
+        const exampleDir = fs.readdirSync(path.join(path.normalize(__dirname + '/..'), 'dist', 'examples', e));
+        const createdExampleDirPath = path.join(path.normalize(__dirname + '/..'), e)
+        const createdExampleDir = fs.readdirSync(createdExampleDirPath);
 
-  //         expect(createdExampleDir).toEqual(exampleDir);
-  //         await new Promise(resolve => rimraf(createdExampleDirPath, resolve));
-  //         if (i === a.length - 1) resolve();
-  //       });
+        expect(createdExampleDir).toEqual(exampleDir);
+        await new Promise(resolve => rimraf(createdExampleDirPath, resolve));
+      });
 
+    })
 
-  //     })
-  //   });
-
-  //   createExamplesPromise.then(done);
-  // })
+    done()
+  })
 
 })
