@@ -94,7 +94,7 @@ describe('Bootstrap templates', () => {
 
     })
 
-    done()
+    done();
   })
 
 })

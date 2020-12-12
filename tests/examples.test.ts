@@ -94,7 +94,7 @@ describe('Bootstrap examples', () => {
 
     })
 
-    done()
+    done();
   })
 
 })
