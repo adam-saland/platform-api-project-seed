@@ -40,11 +40,17 @@ function main(argv: any) {
   }
 
   if (argv.example && !EXAMPLE_CHOICES.includes(argv.example as string)) {
-    return console.log(chalk.red(`Can't find the example ${argv.example} exists.\n`), chalk.white('Run the command "create-openfin-app -e" to list the available examples.'));
+    return (
+      console.log(chalk.red(`Sorry couldn't find the example: ${argv.example}.\n`)),
+      console.log(chalk.white('Run the command "create-openfin-app -e" to list the available examples.'))
+    );
   }
 
   if (argv.template && !TEMPLATE_CHOICES.includes(argv.template as string)) {
-    return console.log(chalk.red(`Can't find the template ${argv.template}.\n`), chalk.white('Run the command "create-openfin-app -e" to list the available examples.'));
+    return (
+      console.log(chalk.red(`Sorry couldn't find the template: ${argv.template}.\n`)),
+      console.log(chalk.white('Run the command "create-openfin-app -t" to list the available templates.'))
+    );
   }
 
   const templateOrExample = argv.example ? 'example' : 'template';
@@ -63,7 +69,14 @@ function main(argv: any) {
     return;
   }
 
-  createDirectoryContents(templatePath, projectName);
+  try {
+    createDirectoryContents(templatePath, projectName);
+    console.log(chalk.green(`Success!\n`));
+    console.log(chalk.white(`Created ${options.templateName} at ${options.targetPath}\n`));
+    console.log(chalk.white(`Get started with: \ncd ${projectName}\nnpm install\nnpm start`));
+  } catch (err) {
+    console.log(chalk.red(err));
+  }
 
   // postProcess(options);
 }
