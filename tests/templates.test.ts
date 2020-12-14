@@ -10,7 +10,6 @@ describe('Bootstrap templates', () => {
 
     const template = spawn('node', [
       'dist/index.js',
-      'create-openfin-app',
       '-t',
       TEMPLATES[0]
     ]);
@@ -24,12 +23,12 @@ describe('Bootstrap templates', () => {
     template.stdout.on('end', async () => {
       const output = Buffer.concat(chunks).toString();
       const templateDir = fs.readdirSync(path.join(path.normalize(__dirname + '/..'), 'dist', 'templates', TEMPLATES[0]));
-      const createdtemplateDirPath = path.join(path.normalize(__dirname + '/..'), TEMPLATES[0])
-      const createdtemplateDir = fs.readdirSync(createdtemplateDirPath);
+      const createdTemplateDirPath = path.join(path.normalize(__dirname + '/..'), TEMPLATES[0])
+      const createdTemplateDir = fs.readdirSync(createdTemplateDirPath);
 
-      expect(createdtemplateDir).toEqual(templateDir);
+      expect(createdTemplateDir).toEqual(templateDir);
 
-      await new Promise(resolve => rimraf(createdtemplateDirPath, resolve));
+      await new Promise(resolve => rimraf(createdTemplateDirPath, resolve));
 
       done();
     });
@@ -41,7 +40,6 @@ describe('Bootstrap templates', () => {
 
     const template = spawn('node', [
       'dist/index.js',
-      'create-openfin-app',
       '-t',
       TEMPLATES[0],
       projectName
@@ -71,7 +69,6 @@ describe('Bootstrap templates', () => {
     TEMPLATES.forEach(t => {
       const template = spawn('node', [
         'dist/index.js',
-        'create-openfin-app',
         '-t',
         t
       ]);

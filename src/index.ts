@@ -55,7 +55,7 @@ function main(argv: any) {
 
   const templateOrExample = argv.example ? 'example' : 'template';
   const templatePath = path.join(__dirname, `${templateOrExample}s`, argv[templateOrExample] as string);
-  const projectName = argv._[1] as string || argv[templateOrExample] as string;
+  const projectName = argv._[0] as string || argv[templateOrExample] as string;
   const targetPath = path.join(CURR_DIR, projectName);
 
   const options: CliOptions = {

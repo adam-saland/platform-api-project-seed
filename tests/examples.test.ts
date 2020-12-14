@@ -10,7 +10,6 @@ describe('Bootstrap examples', () => {
 
     const example = spawn('node', [
       'dist/index.js',
-      'create-openfin-app',
       '-e',
       EXAMPLES[0]
     ]);
@@ -41,7 +40,6 @@ describe('Bootstrap examples', () => {
 
     const example = spawn('node', [
       'dist/index.js',
-      'create-openfin-app',
       '-e',
       EXAMPLES[0],
       projectName
@@ -71,7 +69,6 @@ describe('Bootstrap examples', () => {
     EXAMPLES.forEach(e => {
       const example = spawn('node', [
         'dist/index.js',
-        'create-openfin-app',
         '-e',
         e
       ]);
