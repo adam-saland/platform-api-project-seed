@@ -28,9 +28,7 @@ describe('Bootstrap examples', () => {
 
       expect(createdExampleDir).toEqual(exampleDir);
 
-      await new Promise(resolve => rimraf(createdExampleDirPath, resolve));
-
-      done();
+      new Promise(resolve => rimraf(createdExampleDirPath, resolve)).then(done);
     });
   })
 
@@ -59,9 +57,7 @@ describe('Bootstrap examples', () => {
 
       expect(createdExampleDir).toEqual(exampleDir);
 
-      await new Promise(resolve => rimraf(createdExampleDirPath, resolve));
-
-      done();
+      new Promise(resolve => rimraf(createdExampleDirPath, resolve)).then(done);
     });
   })
 
@@ -92,6 +88,45 @@ describe('Bootstrap examples', () => {
     })
 
     done();
+  })
+
+  it('should error if the dir already exists', (done) => {
+    const example = spawn('node', [
+      'dist/index.js',
+      '-e',
+      EXAMPLES[0]
+    ]);
+
+    const chunks: Buffer[] = [];
+
+    example.stdout.on('data', (chunk) => {
+      chunks.push(chunk);
+    });
+
+    example.stdout.on('end', async () => {
+      const retryExample = spawn('node', [
+        'dist/index.js',
+        '-e',
+        EXAMPLES[0]
+      ]);
+
+      const retryChunks: Buffer[] = [];
+
+      retryExample.stdout.on('data', (chunk) => {
+        retryChunks.push(chunk);
+      });
+
+      retryExample.stdout.on('end', async () => {
+        const output = Buffer.concat(chunks).toString();
+        console.log(output);
+        const createdExampleDirPath = path.join(path.normalize(__dirname + '/..'), EXAMPLES[0])
+        const pass: boolean = output.includes('exists');
+
+        expect(pass).toEqual(true);
+
+        await new Promise(resolve => rimraf(createdExampleDirPath, resolve)).then(done);
+      });
+    });
   })
 
 })

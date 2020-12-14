@@ -28,14 +28,11 @@ describe('Bootstrap templates', () => {
 
       expect(createdTemplateDir).toEqual(templateDir);
 
-      await new Promise(resolve => rimraf(createdTemplateDirPath, resolve));
-
-      done();
+      new Promise(resolve => rimraf(createdTemplateDirPath, resolve)).then(done);
     });
   })
 
-  it('should be able to create an template with a custom project name', (done) => {
-
+  it('should be able to create a template with a custom project name', (done) => {
     const projectName = 'my-project';
 
     const template = spawn('node', [
@@ -59,9 +56,7 @@ describe('Bootstrap templates', () => {
 
       expect(createdTemplateDir).toEqual(templateDir);
 
-      await new Promise(resolve => rimraf(createdTemplateDirPath, resolve));
-
-      done();
+      new Promise(resolve => rimraf(createdTemplateDirPath, resolve)).then(done)
     });
   })
 
@@ -86,12 +81,62 @@ describe('Bootstrap templates', () => {
         const createdTemplateDir = fs.readdirSync(createdTemplateDirPath);
 
         expect(createdTemplateDir).toEqual(templateDir);
-        await new Promise(resolve => rimraf(createdTemplateDirPath, resolve));
+        new Promise(resolve => rimraf(createdTemplateDirPath, resolve)).then(done);
       });
 
     })
 
     done();
+  })
+
+  it('should error if the template dir already exists', (done) => {
+    const template = spawn('node', [
+      'dist/index.js',
+      '-t',
+      TEMPLATES[0]
+    ]);
+
+    const chunks: Buffer[] = [];
+
+    template.stdout.on('data', (chunk) => {
+      chunks.push(chunk);
+    });
+
+    template.stdout.on('end', async () => {
+      const output = Buffer.concat(chunks).toString();
+      const templateDir = fs.readdirSync(path.join(path.normalize(__dirname + '/..'), 'templates', TEMPLATES[0]));
+      const createdTemplateDirPath = path.join(path.normalize(__dirname + '/..'), TEMPLATES[0]);
+      const createdTemplateDir = fs.readdirSync(createdTemplateDirPath);
+
+      // expect(createdTemplateDir).toEqual(templateDir);
+      const retryTemplate = spawn('node', [
+        'dist/index.js',
+        '-t',
+        TEMPLATES[0]
+      ]);
+
+      const retryChunks: Buffer[] = [];
+
+      retryTemplate.stdout.on('data', (chunk) => {
+        retryChunks.push(chunk);
+      });
+
+      retryTemplate.stdout.on('end', async () => {
+        const output = Buffer.concat(chunks).toString();
+        console.log(output);
+        const templateDir = fs.readdirSync(path.join(path.normalize(__dirname + '/..'), 'templates', TEMPLATES[0]));
+        const createdTemplateDirPath = path.join(path.normalize(__dirname + '/..'), TEMPLATES[0])
+        const createdTemplateDir = fs.readdirSync(createdTemplateDirPath);
+
+        let pass = output.includes('exists');
+
+        expect(pass).toEqual(true);
+
+        new Promise(resolve => rimraf(createdTemplateDirPath, resolve)).then(done);
+        done();
+      });
+
+    });
   })
 
 })
