@@ -4,7 +4,7 @@ import * as path from 'path';
 import rimraf from 'rimraf';
 
 describe('Bootstrap templates', () => {
-  const TEMPLATES: string[] = fs.readdirSync(path.join(path.normalize(__dirname + '/..'), 'dist', 'TEMPLATES'));
+  const TEMPLATES: string[] = fs.readdirSync(path.join(path.normalize(__dirname + '/..'), 'templates'));
 
   it('should be able to create an templates', (done) => {
 
@@ -22,7 +22,7 @@ describe('Bootstrap templates', () => {
 
     template.stdout.on('end', async () => {
       const output = Buffer.concat(chunks).toString();
-      const templateDir = fs.readdirSync(path.join(path.normalize(__dirname + '/..'), 'dist', 'templates', TEMPLATES[0]));
+      const templateDir = fs.readdirSync(path.join(path.normalize(__dirname + '/..'), 'templates', TEMPLATES[0]));
       const createdTemplateDirPath = path.join(path.normalize(__dirname + '/..'), TEMPLATES[0])
       const createdTemplateDir = fs.readdirSync(createdTemplateDirPath);
 
@@ -53,7 +53,7 @@ describe('Bootstrap templates', () => {
 
     template.stdout.on('end', async () => {
       const output = Buffer.concat(chunks).toString();
-      const templateDir = fs.readdirSync(path.join(path.normalize(__dirname + '/..'), 'dist', 'templates', TEMPLATES[0]));
+      const templateDir = fs.readdirSync(path.join(path.normalize(__dirname + '/..'), 'templates', TEMPLATES[0]));
       const createdTemplateDirPath = path.join(path.normalize(__dirname + '/..'), projectName)
       const createdTemplateDir = fs.readdirSync(createdTemplateDirPath);
 
@@ -81,7 +81,7 @@ describe('Bootstrap templates', () => {
 
       template.stdout.on('end', async () => {
         const output = Buffer.concat(chunks).toString();
-        const templateDir = fs.readdirSync(path.join(path.normalize(__dirname + '/..'), 'dist', 'templates', t));
+        const templateDir = fs.readdirSync(path.join(path.normalize(__dirname + '/..'), 'templates', t));
         const createdTemplateDirPath = path.join(path.normalize(__dirname + '/..'), t)
         const createdTemplateDir = fs.readdirSync(createdTemplateDirPath);
 

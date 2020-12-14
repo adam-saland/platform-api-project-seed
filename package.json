@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest tests",
     "start": "ts-node src/index.ts",
-    "build": "tsc && shx cp -r src/examples dist && shx cp -r src/templates dist"
+    "build": "tsc"
   },
   "bin": {
     "create-openfin-app": "./dist/index.js"

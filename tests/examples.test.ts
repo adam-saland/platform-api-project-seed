@@ -4,7 +4,7 @@ import * as path from 'path';
 import rimraf from 'rimraf';
 
 describe('Bootstrap examples', () => {
-  const EXAMPLES: string[] = fs.readdirSync(path.join(path.normalize(__dirname + '/..'), 'dist', 'examples'));
+  const EXAMPLES: string[] = fs.readdirSync(path.join(path.normalize(__dirname + '/..'), 'examples'));
 
   it('should be able to create an example', (done) => {
 
@@ -22,7 +22,7 @@ describe('Bootstrap examples', () => {
 
     example.stdout.on('end', async () => {
       const output = Buffer.concat(chunks).toString();
-      const exampleDir = fs.readdirSync(path.join(path.normalize(__dirname + '/..'), 'dist', 'examples', EXAMPLES[0]));
+      const exampleDir = fs.readdirSync(path.join(path.normalize(__dirname + '/..'), 'examples', EXAMPLES[0]));
       const createdExampleDirPath = path.join(path.normalize(__dirname + '/..'), EXAMPLES[0])
       const createdExampleDir = fs.readdirSync(createdExampleDirPath);
 
@@ -53,7 +53,7 @@ describe('Bootstrap examples', () => {
 
     example.stdout.on('end', async () => {
       const output = Buffer.concat(chunks).toString();
-      const exampleDir = fs.readdirSync(path.join(path.normalize(__dirname + '/..'), 'dist', 'examples', EXAMPLES[0]));
+      const exampleDir = fs.readdirSync(path.join(path.normalize(__dirname + '/..'), 'examples', EXAMPLES[0]));
       const createdExampleDirPath = path.join(path.normalize(__dirname + '/..'), projectName)
       const createdExampleDir = fs.readdirSync(createdExampleDirPath);
 
@@ -81,7 +81,7 @@ describe('Bootstrap examples', () => {
 
       example.stdout.on('end', async () => {
         const output = Buffer.concat(chunks).toString();
-        const exampleDir = fs.readdirSync(path.join(path.normalize(__dirname + '/..'), 'dist', 'examples', e));
+        const exampleDir = fs.readdirSync(path.join(path.normalize(__dirname + '/..'), 'examples', e));
         const createdExampleDirPath = path.join(path.normalize(__dirname + '/..'), e)
         const createdExampleDir = fs.readdirSync(createdExampleDirPath);
 

@@ -19,8 +19,8 @@ const argv = yargs.usage('Usage: $0 <command> [options]')
   .alias('h', 'help')
   .argv;
 
-const EXAMPLE_CHOICES: string[] = fs.readdirSync(path.join(__dirname, 'examples'));
-const TEMPLATE_CHOICES: string[] = fs.readdirSync(path.join(__dirname, 'templates'));
+const EXAMPLE_CHOICES: string[] = fs.readdirSync(path.join(path.normalize(__dirname + '/..'), 'examples'));
+const TEMPLATE_CHOICES: string[] = fs.readdirSync(path.join(path.normalize(__dirname + '/..'), 'templates'));
 const SKIP_FILES = ['node_modules', '.template.json'];
 const CURR_DIR = process.cwd();
 export interface CliOptions {
@@ -54,7 +54,7 @@ function main(argv: any) {
   }
 
   const templateOrExample = argv.example ? 'example' : 'template';
-  const templatePath = path.join(__dirname, `${templateOrExample}s`, argv[templateOrExample] as string);
+  const templatePath = path.join(path.normalize(__dirname + '/..'), `${templateOrExample}s`, argv[templateOrExample] as string);
   const projectName = argv._[0] as string || argv[templateOrExample] as string;
   const targetPath = path.join(CURR_DIR, projectName);
 
