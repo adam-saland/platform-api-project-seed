@@ -104,7 +104,9 @@ fieldset label {
     margin-left: 10px;
     margin-top: 10px;
 }
-
+#toggle-button {
+    color: #eee;
+}
 #menu-button {
     background-image: var(--menu-icon);
     background-size: 12px;

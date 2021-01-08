@@ -43,6 +43,7 @@ class TitleBar extends HTMLElement {
                     <div class="button" title="Toggle Theme" id="theme-button" @click=${this.toggleTheme}></div>
                     <div class="button" title="Toggle Sidebar" id="menu-button" @click=${this.toggleMenu}></div>
                     <div class="button" title="Toggle Layout Lock" id="lock-button" @click=${this.toggleLockedLayout}></div>
+                    <input class="button" type="checkbox" title="Toggle on top" id="toggle-button" @click=${() => this.toggleAlwaysOnTop()}/>
                     <div class="button" title="Minimize Window" id="minimize-button" @click=${() => fin.me.minimize().catch(console.error)}></div>
                     <div class="button" title="Maximize Window" id="expand-button" @click=${() => this.maxOrRestore().catch(console.error)}></div>
                     <div class="button" title="Close Window" id="close-button" @click=${() => fin.me.close().catch(console.error)}></div>
@@ -57,7 +58,20 @@ class TitleBar extends HTMLElement {
 
         return fin.me.restore();
     }
-
+    toggleAlwaysOnTop = () => {
+        const toggleBtn = document.querySelector("#toggle-button")
+        toggleBtn.addEventListener('change', async () => {
+            if (toggleBtn.checked) {
+              // do this
+              await fin.me.updateOptions({alwaysOnTop: true})
+              console.log('Checked');
+            } else {
+              // do that
+              await fin.me.updateOptions({alwaysOnTop: false})
+              console.log('Not checked');
+            }
+          });
+    }
     toggleLockedLayout = async () => {
         const oldLayout = await fin.Platform.Layout.getCurrentSync().getConfig();
         const { settings, dimensions } = oldLayout;
