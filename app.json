@@ -34,6 +34,7 @@
             "defaultTop": 0,
             "saveWindowState": false,
             "backgroundThrottling": true,
+            "alwaysOnTop": false,
             "minHeight": 445,
             "minWidth": 354,
             "experimental": {
