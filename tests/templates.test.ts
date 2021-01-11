@@ -6,7 +6,7 @@ import rimraf from 'rimraf';
 describe('Bootstrap templates', () => {
   const TEMPLATES: string[] = fs.readdirSync(path.join(path.normalize(__dirname + '/..'), 'templates'));
 
-  it('should be able to create an templates', (done) => {
+  it('should be able to create templates', (done) => {
 
     const template = spawn('node', [
       'dist/index.js',
