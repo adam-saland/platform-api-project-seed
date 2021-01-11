@@ -34,7 +34,7 @@ main(argv);
 
 function main(argv: any) {
   if (!argv.example && !argv.template) {
-    return console.log(chalk.white('Must choose an example or template, see --help "create-openfin-app -h"'));
+    return console.log(chalk.white('Must choose an example or template.. see --help "create-openfin-app -h".'));
   }
 
   if (argv.example === true || argv.template === true) {
