@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <title>OpenFin Template</title>
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </head>
+    <body>
+        <div>
+            <label for="url">Enter an https:// URL:</label>
+
+            <input
+                type="url"
+                name="url"
+                id="url"
+                placeholder="https://example.com"
+                required
+            />
+            <button id="check">Check manifest</button>
+        </div>
+    </body>
+
+    <script>
+        if (fin) {
+            fin.me.showDeveloperTools();
+            let urlValue;
+            const urlInput = document.querySelector("#url");
+            urlInput.addEventListener("change", (e) => {
+                urlValue = e.target.value;
+            });
+
+            document.querySelector("#check").addEventListener("click", () => {
+                console.log("URL", urlInput.value);
+                console.log("urlValue", urlValue);
+                createHealthCheckView(urlValue).then(console.log)
+            });
+
+            async function createHealthCheckView(manifestUrl) {
+                let windowIdentity;
+                if (fin.me.isWindow) {
+                    windowIdentity = fin.me.identity;
+                } else if (fin.me.isView) {
+                    windowIdentity = (await fin.me.getCurrentWindow()).identity;
+                } else {
+                    throw new Error("Not running in a platform View or Window");
+                }
+
+                const platform = fin.Platform.getCurrentSync();
+                console.log(manifestUrl)
+                platform
+                    .createView(
+                        {
+                            name: "test_view",
+                            url: `https://install-staging.openfin.co/health/?=${manifestUrl}`,
+                        },
+                        windowIdentity
+                    )
+                    .then(console.log);
+            }
+        }
+    </script>
+</html>
